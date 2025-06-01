@@ -53,13 +53,94 @@
 
 **Goal**: Get Qlib installed, run your first demo, and understand the core components.
 
-1. Official Quickstart Guide (Read the Docs)
+### 2.1.1. Official Quickstart Guide (Read the Docs)
 
-* Install Qlib and its dependencies
-* Prepare sample data and configuration
-* Run the built-in demo to train & backtest a simple model
+Reference: https://github.com/shevapato2008/qlib
 
-2. Video: “Qlib: AI-Driven Open-Source Platform for Quantitative Finance” (Quantlab YouTube)
+(1) Install Qlib and its dependencies
+
+```shell
+$ conda activate py311_tf218
+# Install with pip
+$ pip install pyqlib
+# Install from source
+$ pip install numpy
+$ pip install --upgrade cython
+$ git clone https://github.com/microsoft/qlib.git && cd qlib
+$ pip install .  # `pip install -e .[dev]` is recommended for development. check details in docs/developer/code_standard_and_dev_guide.rst
+```
+```python
+>>> import qlib
+>>> qlib.__version__
+'0.9.6.99'
+```
+
+(2) Data Preparation
+
+**Get with module**
+```shell
+# get 1d data
+python -m qlib.run.get_data qlib_data --target_dir ~/.qlib/qlib_data/cn_data --region cn
+# get 1min data
+python -m qlib.run.get_data qlib_data --target_dir ~/.qlib/qlib_data/cn_data_1min --region cn --interval 1min
+```
+
+**Get from source**
+```shell
+# get 1d data
+python scripts/get_data.py qlib_data --target_dir ~/.qlib/qlib_data/cn_data --region cn
+# get 1min data
+python scripts/get_data.py qlib_data --target_dir ~/.qlib/qlib_data/cn_data_1min --region cn --interval 1min
+```
+
+**Automatic update of daily frequency data (from yahoo finance)**
+* Automatic update of data to the "qlib" directory each trading day(Linux)
+  * use crontab: `crontab -e`
+  * set up timed tasks:
+
+```shell
+* * * * 1-5 python <script path> update_data_to_bin --qlib_data_1d_dir <user data dir>
+```
+
+* Manual update of data
+  * `trading_date`: start of trading day
+  * `end_date`: end of trading day (not included)
+
+```shell
+python scripts/data_collector/yahoo/collector.py update_data_to_bin --qlib_data_1d_dir <user data dir> --trading_date <start date> --end_date <end date>
+```
+
+**Checking the health of the data**
+
+```shell
+# base command
+python scripts/check_data_health.py check_data \
+    --qlib_dir ~/.qlib/qlib_data/cn_data
+
+# add some parameters
+python scripts/check_data_health.py check_data \
+    --qlib_dir ~/.qlib/qlib_data/cn_data \
+    --missing_data_num 30055 \
+    --large_step_threshold_volume 94485 \
+    --large_step_threshold_price 20
+```
+
+
+(3) Auto Quant Research Workflow
+* Quant Research Workflow
+```shell
+cd examples  # Avoid running program under the directory contains `qlib`
+qrun benchmarks/LightGBM/workflow_config_lightgbm_Alpha158.yaml
+
+# qrun under debug mode
+python -m pdb qlib/workflow/cli.py examples/benchmarks/LightGBM/workflow_config_lightgbm_Alpha158.yaml
+```
+
+* Graphical Reports Analysis:
+
+Run `examples/workflow_by_code.ipynb` with jupyter notebook
+
+### 2.1.2. Video: “Qlib: AI-Driven Open-Source Platform for Quantitative Finance” (Quantlab YouTube)
 
 * Follow along the install steps
 * See the demo strategy in action
