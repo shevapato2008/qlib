@@ -152,11 +152,7 @@ Run `examples/workflow_by_code.ipynb` with jupyter notebook
 
 **Goal**: Understand Qlib’s design: data manager, dataset, models, backtester.
 
-1. Medium: “Demystifying Qlib: Your Guide to Microsoft’s AI-Driven Quantitative Investment Platform”
-
-* Learn about `D` (data API), `Dataset`, and the `Quant Model Zoo`
-
-2. Medium: “Qlib: A Free AI Trading Beast Thanks to Microsoft”
+1. Video: [微软打造Qlib：AI驱动的量化投资平台详细介绍](https://www.bilibili.com/video/BV11w7pzwEH5/?spm_id_from=333.337.search-card.all.click&vd_source=be274acb79d0df9850b3009e5244f7d3)
 
 * Deep dive into YAML workflows and model registry
 
@@ -184,11 +180,13 @@ Run `examples/workflow_by_code.ipynb` with jupyter notebook
 
 **Goal**: Plug in your own algorithms and compare against built-in models.
 
-1. Video: “Qlib: Machine Learning for Stock Prediction and Forecasting” (LSTM end-to-end)
+1. Video: [详解Qlib中用于量化投资任务的深度学习模型](https://www.bilibili.com/video/BV1yA7pzhEBQ/?spm_id_from=333.1387.homepage.video_card.click&vd_source=be274acb79d0df9850b3009e5244f7d3)
+
+2. Video: “Qlib: Machine Learning for Stock Prediction and Forecasting” (LSTM end-to-end)
 
 * Learn how to configure and run a deep learning model
 
-2. Medium: “Make Money With This AI-Oriented Quantitative Investment Platform”
+3. Medium: “Make Money With This AI-Oriented Quantitative Investment Platform”
 
 * Examples of swapping in new models via the CLI
 
@@ -201,9 +199,11 @@ Run `examples/workflow_by_code.ipynb` with jupyter notebook
 
 **Goal**: Use Qlib’s backtest engine to validate strategies across different market regimes.
 
-1. Revisit the Official Quickstart backtest section for walk-forward splits
+1. Video: [量化投资策略评估：QLib的多维度指标体系详细介绍](https://www.bilibili.com/video/BV1WN7pzFEsh/?vd_source=be274acb79d0df9850b3009e5244f7d3)
 
-2. Explore the built-in Quant Model Zoo strategies under `qlib.contrib.strategy`
+2. Revisit the Official Quickstart backtest section for walk-forward splits
+
+3. Explore the built-in Quant Model Zoo strategies under `qlib.contrib.strategy`
 
 > **Exercise**:
 > * Configure a 5-fold time-series split (e.g., 2015–2019 train, 2020 test) in YAML.
@@ -214,9 +214,11 @@ Run `examples/workflow_by_code.ipynb` with jupyter notebook
 
 **Goal**: Move from offline experiments to a simple live-simulation or paper-trading setup.
 
-1. Review OnlineManager in qlib.contrib.online.manager (see online rollout examples in the docs)
+1. Video: [量化投资的基石:Qlib AI量化框架的滚动训练与在线训练](https://www.bilibili.com/video/BV1LJ7pzSEiE/?spm_id_from=333.1387.homepage.video_card.click&vd_source=be274acb79d0df9850b3009e5244f7d3)
 
-2. Integrate a market data stream (e.g., minute bars) into the online pipeline
+2. Review OnlineManager in qlib.contrib.online.manager (see online rollout examples in the docs)
+
+3. Integrate a market data stream (e.g., minute bars) into the online pipeline
 
 > **Exercise**:
 > * Set up a cron job or simple loop that:
