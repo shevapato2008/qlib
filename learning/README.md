@@ -182,7 +182,7 @@ Run `examples/workflow_by_code.ipynb` with jupyter notebook
 
 1. Video: [详解Qlib中用于量化投资任务的深度学习模型](https://www.bilibili.com/video/BV1yA7pzhEBQ/?spm_id_from=333.1387.homepage.video_card.click&vd_source=be274acb79d0df9850b3009e5244f7d3)
 
-2. Video: “Qlib: Machine Learning for Stock Prediction and Forecasting” (LSTM end-to-end)
+2. Video: [Qlib: Machine Learning for Stock Prediction and Forecasting](https://www.youtube.com/watch?v=z6a4mQTkMwg) (LSTM end-to-end)
 
 * Learn how to configure and run a deep learning model
 
